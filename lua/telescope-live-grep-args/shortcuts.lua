@@ -17,7 +17,7 @@ local function get_visual()
 end
 
 local grep_under_default_opts = {
-  postfix = " -F ",
+  prefix = "-F ",
   quote = true,
   trim = true,
 }
@@ -34,8 +34,8 @@ local function process_grep_under_text(value, opts)
     value = helpers.quote(value, opts)
   end
 
-  if opts.postfix then
-    value = value .. opts.postfix
+  if opts.prefix then
+    value = opts.prefix .. value 
   end
 
   opts["default_text"] = value
